@@ -5,7 +5,7 @@ using namespace std;
 bool isPrime(int);
 
 int main() {
-	int current = 2, lastp = 2, currentp = 2, lgap = 0;
+	int current = 2, lastp = 2, currentp = 2, lgap = 0, sgap = 1000;
 
 	while(true) {
 		current++;
@@ -14,12 +14,16 @@ int main() {
 			int gap = currentp - lastp;
 			if (gap > lgap) {
 				lgap = gap;
-			}
+            } else if (gap < sgap) {
+                sgap = gap;
+            }
 			lastp = currentp;
 		}
-		if (current % 1000 == 0) {
-			cout << "--Prime Gap--" << endl;
-			cout << lgap << " current prime: "<< currentp<< endl;
+		if (current % 12345 == 0) {
+			cout << "--Prime Gaps--" << endl;
+			cout << "current prime: " << currentp << endl;
+            cout << "Lgap: " << lgap << endl;
+            cout << "Sgap: " << sgap << endl;
 		}	
 	}
 	
