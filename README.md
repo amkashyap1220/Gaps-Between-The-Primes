@@ -1,8 +1,34 @@
-# Gaps-Between-The-Primes
-Gaps Between The Primes is a weekend project, this is a program thats purpose was to solve a maths problem that I came across in a video lecture from Terry Tao. The goal is to find the smallest gap between prime numbers and the largest gap between prime numbers.
+# Gaps Between the Primes
 
-If you compile and run the program it will count indefinitly and continue to find and replace the max value between primes. The goal with an infinite amount of computing time and power would get to somewhere in the 200's, as Terry Tao and the Polymath people predict. This mathematical question is talked about in the lecture.
-# Why?
-I made this program in order to try and practice to use programming to interpret and "solve" the problem given. In this case the problem happened to be a math problem.
+A small C++ program that counts up through the integers, finds each prime, and tracks the **largest** and **smallest** gap between consecutive primes it has seen so far.
 
-[Terry Tao, Ph.D. Small and Large Gaps Between the Primes](https://www.youtube.com/watch?v=pp06oGD4m00&t=491s)
+I built it as a weekend project after watching Terry Tao's lecture [Small and Large Gaps Between the Primes](https://www.youtube.com/watch?v=pp06oGD4m00&t=491s). I wanted to practice turning a math problem into code.
+
+## How it works
+
+- Tests each number for primality by trial division (`isPrime`).
+- When it finds a prime, it measures the gap to the previous prime and updates the largest and smallest gaps.
+- Every 12,345 numbers it prints the latest prime and both gaps.
+- It runs until you stop it (Ctrl+C).
+
+## Run it
+
+```bash
+g++ -O2 primegaps.cpp -o primegaps
+./primegaps
+```
+
+```
+--Prime Gaps--
+current prime: 12343
+Lgap: 36
+Sgap: 2
+--Prime Gaps--
+current prime: 24683
+Lgap: 52
+Sgap: 2
+```
+
+## The math behind it
+
+The largest gap keeps growing as the program runs, because primes get rarer as numbers get bigger. The smallest gap is the harder question. The twin prime conjecture says a gap of 2 keeps appearing forever. In 2013 Yitang Zhang proved that some gap under 70 million appears infinitely often, and Tao's Polymath project brought that bound down to 246. The lecture walks through both.
